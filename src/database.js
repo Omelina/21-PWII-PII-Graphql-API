@@ -2,7 +2,7 @@ import monngoose from "mongoose";
 
 export async function connect() {
     try {
-        monngoose.connect('mongodb://localhost:27017/prueba', {
+        monngoose.connect('mongodb://localhost:27017/api-prueba', {
             useNewUrlParser: true
         })
         console.log('db is connected')

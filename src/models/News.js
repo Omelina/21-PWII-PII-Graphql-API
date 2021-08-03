@@ -7,13 +7,9 @@ const NewsSchema = new Schema({
     description: String,
     permanlink: String,
     date: Date,
-    resourceId: Schema.Types.ObjectId,
-    userId: Schema.Types.ObjectId,
-    categoryId: {
-        type: Schema.Types.ObjectId, 
-        require: true,
-        ref: 'Categories'
-    },
+    resource_id: Object,
+    user_id: Object,
+    category_id: Object,
 
 });
 

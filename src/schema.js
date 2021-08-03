@@ -10,15 +10,15 @@ const typeDefs = `
 
     scalar Date
     type New{
-        _id: ID,
+        _id: ID!,
         status: Boolean,
-        title: String,
-        description: String,
-        permanlink: String,
-        date: Date,
+        title: String!,
+        description: String!,
+        permanlink: String!,
+        date: Date!,
         resource_id: ID,
         user_id: ID,
-        category_id: Categories,
+        category_id: ID,
     }
     type Categories{
         _id: ID!

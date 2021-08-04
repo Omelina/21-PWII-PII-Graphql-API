@@ -7,8 +7,8 @@ export const resolvers = {
         hello: () => {
             return 'Hello World with Graphql'
         },
-        async News(_, {cat}) {
-            return await News.find({category_id: {cat}});
+        async News() {
+            return await News.find();
 
         },
         async Categories(){

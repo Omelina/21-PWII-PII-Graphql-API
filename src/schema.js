@@ -4,7 +4,7 @@ import { resolvers} from './resolvers'
 const typeDefs = `
     type Query{
         hello: String!
-        News: [New]
+        News(cat: ID): [New!]
         Categories: [Categories]
     }
 

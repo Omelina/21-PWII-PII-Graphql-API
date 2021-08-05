@@ -4,9 +4,6 @@ import Categories from "./models/Categories";
 
 export const resolvers = {
     Query: {
-        hello: () => {
-            return 'Hello World with Graphql'
-        },
         async byCategory(_, data) {
             const news = await News.find();
             let a = [];
@@ -17,10 +14,19 @@ export const resolvers = {
             }
             return a;
 
-
         },
         async Categories() {
             return await Categories.find();
+        },
+        async byUser(_, data){
+            const news = await News.find();
+            let a = [];
+            for (let i = 0; i < news.length; i++) {
+                if (news[i].user_id == data.user) {
+                    a.push(news[i]);
+                }
+            }
+            return a;
         }
     }
 }

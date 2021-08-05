@@ -7,11 +7,19 @@ export const resolvers = {
         hello: () => {
             return 'Hello World with Graphql'
         },
-        async News() {
-            return await News.find();
+        async byCategory(_, data) {
+            const news = await News.find();
+            let a = [];
+            for (let i = 0; i < news.length; i++) {
+                if (news[i].category_id == data.cat && news[i].user_id == data.user) {
+                    a.push(news[i]);
+                }
+            }
+            return a;
+
 
         },
-        async Categories(){
+        async Categories() {
             return await Categories.find();
         }
     }

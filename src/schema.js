@@ -5,6 +5,7 @@ const typeDefs = `
     type Query{
         byCategory(cat: ID!, user: ID!): [New!]
         byUser(user: ID!): [New!]
+        byInput(data: String!, user: ID!): [New!]
         News(cat: ID!, user: ID!): [New!]
         Categories: [Categories]
     }

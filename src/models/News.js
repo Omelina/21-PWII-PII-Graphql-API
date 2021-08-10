@@ -5,6 +5,7 @@ const NewsSchema = new Schema({
     status: Boolean,
     title: String,
     description: String,
+    category: String,
     permanlink: String,
     date: Date,
     resource_id: Object,

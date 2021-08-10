@@ -42,6 +42,17 @@ export const resolvers = {
                 }
             }
             return a;
+        },
+        async byTag(_, data) {
+            const news = await News.find();
+            let a = [];
+            for (let i = 0; i < news.length; i++) {
+                if (news[i].category == data.tag && news[i].user_id == data.user) {
+                    
+                    a.push(news[i]);
+                }
+            }
+            return a;
         }
     }
 }

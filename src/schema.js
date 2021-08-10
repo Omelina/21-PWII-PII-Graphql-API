@@ -5,6 +5,7 @@ const typeDefs = `
     type Query{
         byCategory(cat: ID!, user: ID!): [New!]
         byUser(user: ID!): [New!]
+        byTag(tag: String, user: ID!): [New!]
         byInput(data: String!, user: ID!): [New!]
         News(cat: ID!, user: ID!): [New!]
         Categories: [Categories]
@@ -16,6 +17,7 @@ const typeDefs = `
         status: Boolean,
         title: String!,
         description: String!,
+        category: String,
         permanlink: String!,
         date: Date!,
         resource_id: ID,

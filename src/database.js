@@ -1,8 +1,12 @@
 import monngoose from "mongoose";
+require('dotenv').config();
+
+const { NOTES_APP_MONGODB_HOST, NOTES_APP_MONGODB_DATABASE } = process.env;
+const MONGODB_URI = `mongodb://${NOTES_APP_MONGODB_HOST}/${NOTES_APP_MONGODB_DATABASE}`;
 
 export async function connect() {
     try {
-        monngoose.connect('mongodb://localhost:27017/api-prueba', {
+        monngoose.connect(MONGODB_URI, {
             useNewUrlParser: true
         })
         console.log('db is connected')

@@ -8,7 +8,7 @@ export const resolvers = {
             const news = await News.find();
             let a = [];
             for (let i = 0; i < news.length; i++) {
-                if (news[i].category_id == data.cat && news[i].user_id == data.user) {
+                if (news[i].category_id == data.cat && news[i].user_id == data.user && news[i].status == true) {
                     a.push(news[i]);
                 }
             }
@@ -18,11 +18,25 @@ export const resolvers = {
         async Categories() {
             return await Categories.find();
         },
+        async catByName(_, data) {
+            const cats = await Categories.find();
+            let a = [];
+            const message = data.data
+            for (let i = 0; i < cats.length; i++) {
+                if (cats[i].status == true ) {
+                    let n = cats[i].name.toLowerCase().indexOf(message.toLowerCase());
+                    if (n !== -1 ) {
+                        a.push(cats[i]);
+                    }
+                }
+            }
+            return a;
+        },
         async byUser(_, data) {
             const news = await News.find();
             let a = [];
             for (let i = 0; i < news.length; i++) {
-                if (news[i].user_id == data.user) {
+                if (news[i].user_id == data.user && news[i].status == true) {
                     a.push(news[i]);
                 }
             }
@@ -33,7 +47,7 @@ export const resolvers = {
             let a = [];
             const message = data.data
             for (let i = 0; i < news.length; i++) {
-                if (news[i].user_id == data.user) {
+                if (news[i].user_id == data.user && news[i].status == true) {
                     let t = news[i].title.toLowerCase().indexOf(message.toLowerCase());
                     let d = news[i].description.toLowerCase().indexOf(message.toLowerCase());
                     if (t !== -1 || d !== -1) {
@@ -47,7 +61,7 @@ export const resolvers = {
             const news = await News.find();
             let a = [];
             for (let i = 0; i < news.length; i++) {
-                if (news[i].category == data.tag && news[i].user_id == data.user) {
+                if (news[i].category == data.tag && news[i].user_id == data.user && news[i].status == true) {
                     
                     a.push(news[i]);
                 }

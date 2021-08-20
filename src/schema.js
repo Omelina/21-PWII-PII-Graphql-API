@@ -8,6 +8,7 @@ const typeDefs = `
         byTag(tag: String, user: ID!): [New!]
         byInput(data: String!, user: ID!): [New!]
         News(cat: ID!, user: ID!): [New!]
+        catByName(data: String!): [Categories!]
         Categories: [Categories]
     }
 

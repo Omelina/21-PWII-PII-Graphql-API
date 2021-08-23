@@ -1,12 +1,13 @@
 import { makeExecutableSchema } from '@graphql-tools/schema';
-import { resolvers} from './resolvers'
+import { resolvers } from './resolvers';
+import { gql } from 'apollo-server';
 
-const typeDefs = `
+export const typeDefs = gql`
     type Query{
-        byCategory(cat: ID!, user: ID!): [New!]
-        byUser(user: ID!): [New!]
-        byTag(tag: String, user: ID!): [New!]
-        byInput(data: String!, user: ID!): [New!]
+        byCategory(cat: String!, user: String!): [New!]
+        byUser(user: String!): [New!]
+        byTag(tag: String, user: String!): [New!]
+        byInput(data: String!, user: String!): [New!]
         News(cat: ID!, user: ID!): [New!]
         catByName(data: String!): [Categories!]
         Categories: [Categories]
@@ -31,7 +32,6 @@ const typeDefs = `
     }
 `;
 
-export default makeExecutableSchema({
-    typeDefs: typeDefs,
-    resolvers: resolvers
-})
+// export default makeExecutableSchema({
+//     typeDefs: typeDefs
+// })

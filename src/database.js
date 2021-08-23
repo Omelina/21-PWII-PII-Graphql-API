@@ -7,7 +7,8 @@ const MONGODB_URI = `mongodb://${NOTES_APP_MONGODB_HOST}/${NOTES_APP_MONGODB_DAT
 export async function connect() {
     try {
         monngoose.connect(MONGODB_URI, {
-            useNewUrlParser: true
+            useNewUrlParser: true,
+            useUnifiedTopology: true
         })
         console.log('db is connected')
     }catch(e){

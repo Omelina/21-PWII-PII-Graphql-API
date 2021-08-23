@@ -1,5 +1,6 @@
 import News from "./models/News"
 import Categories from "./models/Categories";
+// import mongoose from 'mongoose'
 
 
 export const resolvers = {
